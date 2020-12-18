@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bound1
   - Bound2
+  - 'Enemy '
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -22,15 +22,17 @@ public class EnemyScript : MonoBehaviour
     {
         float adjustedSpeed = opponentSpeed * speedModifier;
         transform.position += (Vector3.right * adjustedSpeed * Time.deltaTime);
-
+        //transform.position += (Vector3.down * adjustedSpeed * Time.deltaTime);
 
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Bound1" || collision.tag == "Bound2")
         {
-            speedModifier = Random.Range(0.5f, 2);
+            //speedModifier = Random.Range(0.5f, 2);
+            speedModifier = 1;
             opponentSpeed *= -1.0f;
 
            

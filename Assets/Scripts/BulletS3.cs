@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class BulletS3 : MonoBehaviour
 {
 	private Transform bullet;
 	public float speed;
@@ -21,13 +21,13 @@ public class BulletScript : MonoBehaviour
 			Destroy(gameObject);
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.tag == "Enemy")
+		if (other.gameObject.name == "Enemy03")
 		{
 			Destroy(other.gameObject);
 			Destroy(gameObject);
-			
+
 		}
 	}
 }

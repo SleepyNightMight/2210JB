@@ -6,7 +6,7 @@ public class BulletScript1 : MonoBehaviour
 {
     Rigidbody2D rb;
 
-    [HideInInspector]
+    
     public float speed;
 
     public bool enemyBullet;
@@ -26,12 +26,12 @@ public class BulletScript1 : MonoBehaviour
         //If it is an enemy bullet have it move to the left, if it is a player bullet, to the right.
         if (enemyBullet)
         {
-            rb.velocity = (Vector2.left * speed * Time.deltaTime);
+            rb.velocity = (Vector2.down * speed * Time.deltaTime);
 
         }
         else
         {
-            rb.velocity = (Vector2.right * speed * Time.deltaTime);
+            rb.velocity = (Vector2.up * speed * Time.deltaTime);
         }
     }
 
@@ -39,7 +39,11 @@ public class BulletScript1 : MonoBehaviour
     //Whatever the bullet hits, have it destroy itself
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (collision.tag == "Enemy" || collision.tag == "Player")
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
     }
 
 }
